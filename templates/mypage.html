@@ -1,0 +1,9 @@
+<h1>내 구매 내역</h1>
+
+{% for p in purchases %}
+<p>{{ p.lotto_round.round }}회차 - {{ p.numbers }}</p>
+{% empty %}
+<p>아직 구매한 로또가 없습니다.</p>
+{% endfor %}
+
+<a href="/">홈</a>
