@@ -12,7 +12,7 @@ def index(request):
     return render(request, "lotto_app/index.html")
 
 
-@login_required
+
 def buy(request):
     if not LottoRound.objects.exists():
         LottoRound.objects.create(round=1)
@@ -33,13 +33,13 @@ def buy(request):
     })
 
 
-@login_required
+
 def mypage(request):
     purchases = LottoPurchase.objects.filter(user=request.user).order_by('-id')
     return render(request, "lotto_app/mypage.html", {"purchases": purchases})
 
 
-@login_required
+
 def check_result(request, round_number):
     try:
         lotto_round = LottoRound.objects.get(round=round_number)
